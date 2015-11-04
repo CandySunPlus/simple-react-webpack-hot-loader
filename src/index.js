@@ -6,3 +6,5 @@ ReactDOM.render(
   <App />,
   document.getElementById('demoApp')
 );
+
+var css = require('./style/main.scss');
