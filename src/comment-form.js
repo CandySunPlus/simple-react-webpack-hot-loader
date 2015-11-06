@@ -25,8 +25,8 @@ var CommentForm = React.createClass({
       <div className="form">
         <form onSubmit={this.submitHandler} className="pure-form">
           <fieldset className="pure-group">
-            <input type="text" placeholder="Your name" className="pure-input-1-2" ref="author"/>
-            <textarea name="" placeholder="Say something..." className="pure-input-1-2" ref="content"></textarea>
+            <input type="text" placeholder="Your name" className="pure-input-1-2" ref="author" />
+            <textarea name="" placeholder="Say something..." className="pure-input-1-2" ref="content" />
           </fieldset>
           <button type="submit" className="pure-button pure-input-1-2 pure-button-primary">提交</button>
         </form>
