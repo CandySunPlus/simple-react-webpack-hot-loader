@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
  * webpack config
@@ -17,6 +18,7 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
+    new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -27,7 +29,7 @@ module.exports = {
       include: path.join(__dirname, 'src')
     }, {
       test: /\.scss/,
-      loader: 'style!css!sass',
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       include: path.join(__dirname, 'src')
     }]
   }
