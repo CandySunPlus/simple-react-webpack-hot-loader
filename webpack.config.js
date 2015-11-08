@@ -17,6 +17,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  node: {  // this is for pixi.js
+    fs: "empty"
+  },
   plugins: [
     new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin(),
