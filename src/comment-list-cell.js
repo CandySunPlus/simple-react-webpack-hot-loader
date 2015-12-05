@@ -1,11 +1,10 @@
 /**
  * Created by niksun on 15/11/3.
  */
-var React = require('react');
+import React from 'react';
 
-var CommentListCell = React.createClass({
-  displayName: 'CommentListCell',
-  render: function() {
+export default class CommentListCell extends React.Component {
+  render() {
     return (
       <div className="cell">
         <h3 className="author">{this.props.author}</h3>
@@ -13,6 +12,6 @@ var CommentListCell = React.createClass({
       </div>
     );
   }
-});
+}
 
 module.exports = CommentListCell;

@@ -2,11 +2,10 @@
  * Created by niksun on 15/11/3.
  */
 
-var React = require('react');
+import React from 'react';
 
-var CommentForm = React.createClass({
-  displayName: 'CommentForm',
-  submitHandler: function(e) {
+export default class CommentForm extends React.Component {
+  submitHandler(e) {
     e.preventDefault();
     var author = this.refs.author.value.trim();
     var content = this.refs.content.value.trim();
@@ -19,11 +18,11 @@ var CommentForm = React.createClass({
     this.refs.content.value = '';
 
     this.props.onCommentSubmit(author, content);
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="form">
-        <form onSubmit={this.submitHandler} className="pure-form">
+        <form onSubmit={this.submitHandler.bind(this)} className="pure-form">
           <fieldset className="pure-group">
             <input type="text" placeholder="Your name" className="pure-input-1-2" ref="author" />
             <textarea name="" placeholder="Say something..." className="pure-input-1-2" ref="content" />
@@ -33,6 +32,4 @@ var CommentForm = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = CommentForm;
+}

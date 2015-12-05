@@ -28,7 +28,8 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'jsx'],
+      loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
+      exclude: /(node_modules|bower_components)/,
       include: path.join(__dirname, 'src')
     }, {
       test: /\.scss/,

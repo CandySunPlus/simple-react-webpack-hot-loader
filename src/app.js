@@ -1,12 +1,10 @@
-var React = require('react');
-var CommentBox = require('./comment-box');
+import React from 'react';
+import CommentBox from './comment-box';
 
-var App = React.createClass({
-  render: function() {
+export default class App extends React.Component {
+  render() {
     return (
       <CommentBox />
     );
   }
-});
-
-module.exports = App;
+}

@@ -1,11 +1,12 @@
 /**
  * Created by niksun on 15/11/3.
  */
-var React = require('react');
-var CommentForm = require('./comment-form');
-var CommentList = require('./comment-list');
 
-var comments = [
+import React from 'react';
+import CommentForm from './comment-form';
+import CommentList from './comment-list';
+
+let comments = [
   {
     author: 'NikSun',
     content: '这是第一条评论'
@@ -15,19 +16,20 @@ var comments = [
     content: '这是另一条评论'
   }
 ];
-var CommentBox = React.createClass({
-  displayName: 'CommentBox',
-  getInitialState: function() {
-    return {
+
+export default class CommentBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       comments: []
     };
-  },
-  componentDidMount: function() {
+  }
+  componentDidMount() {
     this.setState({
       comments: comments
     });
-  },
-  addComment: function(author, content) {
+  }
+  addComment(author, content) {
     comments.push({
       author: author,
       content: content
@@ -36,15 +38,13 @@ var CommentBox = React.createClass({
     this.setState({
       comments: comments
     });
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="comment-box">
-        <CommentForm onCommentSubmit={this.addComment} />
-        <CommentList comments={this.state.comments} />
+        <CommentForm onCommentSubmit={this.addComment.bind(this)}/>
+        <CommentList comments={this.state.comments}/>
       </div>
-    )
+    );
   }
-});
-
-module.exports = CommentBox;
+}
